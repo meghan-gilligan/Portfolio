@@ -76,6 +76,27 @@
 
     .nav-links a:hover { color: var(--ink); }
 
+    /* ── MOBILE MENU TOGGLE ── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 101;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--ink);
+      transition: all 0.3s ease;
+    }
+
     /* ── SECTION STYLING ── */
     section {
       padding: 8rem 3rem 5rem; 
@@ -171,7 +192,30 @@
     /* ── MOBILE FIXES ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
+      
+      .menu-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 3rem 1.5rem;
+        border-bottom: 1px solid var(--rule);
+        gap: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      }
+
+      .nav-links.active { display: flex; }
+
+      .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
       section { padding: 6rem 1.5rem 4rem; }
       .tl-role { font-size: 17px; }
     }
@@ -186,6 +230,13 @@
 
   <nav>
     <a class="nav-name" href="index.html">Meghan Gilligan</a>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="philosophy.html">Philosophy</a></li>
@@ -259,6 +310,23 @@
   </footer>
 
   <script>
+    /* ── MOBILE MENU LOGIC ── */
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    /* ── FADE-IN OBSERVER ── */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
