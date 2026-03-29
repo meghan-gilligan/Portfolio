@@ -116,45 +116,7 @@
 
     .bio-col h1 em { font-style: italic; font-weight: 400; color: var(--accent-warm); }
 
-    /* ── TIMELINE ── */
-    #experience .timeline { position: relative; padding-left: 2rem; }
-    #experience .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
-    .timeline-item { position: relative; padding-bottom: 3rem; }
-    .timeline-item::before { content: ''; position: absolute; left: -2rem; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-light); border: 1.5px solid var(--accent); transform: translateX(-3px); }
-    .tl-meta { display: flex; gap: 1rem; align-items: baseline; margin-bottom: 0.5rem; }
-    .tl-year { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
-    .tl-org { font-size: 11px; text-transform: uppercase; color: var(--accent-warm); }
-    .tl-role { font-family: var(--header-font); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
-    .tl-desc { font-size: 14px; color: var(--ink-soft); max-width: 650px; }
-
-    /* ── PROJECT GRID ── */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-    }
-
-    .project-card {
-      background: var(--warm-white);
-      padding: 2.5rem;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .annotation-box {
-      margin-top: 1.5rem;
-      padding: 1.25rem;
-      background: rgba(123, 110, 93, 0.05);
-      border-left: 3px solid var(--accent-warm);
-      font-size: 14px;
-    }
-
-    summary { cursor: pointer; font-weight: 700; color: var(--accent-warm); text-transform: uppercase; font-size: 11px; margin-bottom: 0.5rem; list-style: none; }
-
-    /* ── MOBILE FIXES ── */
+        /* ── MOBILE FIXES ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
@@ -198,26 +160,16 @@
         <p>I work at the intersection of adult learning, instructional design, and human development, helping people navigate transitions into work, education, and professional practice.</p>
         <p style="margin-top: 1rem;">With fifteen years of experience spanning employment counselling, career coaching, and post-secondary teaching, I bring both depth of practice and a strong theoretical grounding in adult learning.</p>
       </div>
+       <div class="tag-row">
+        <span class="tag">Adult Learning</span>
+        <span class="tag">Instructional Design</span>
+        <span class="tag">Career Development</span>
+        <span class="tag">Equity-Centred Practice</span>
+        <span class="tag">Experiential Learning</span>
+      </div>
       <div style="margin-top: 2rem; display: flex; gap: 1rem;">
         <a href="#about" style="padding: 12px 28px; background: var(--ink); color: white; text-decoration: none; font-size: 12px; text-transform: uppercase;">Read more</a>
         <a href="#projects" style="padding: 12px 28px; background: var(--ink); color: white; text-decoration: none; font-size: 12px; text-transform: uppercase;">View work samples</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="section-header fade-in">
-      <p style="font-size: 11px; text-transform: uppercase; color: var(--ink-muted);">01 — About</p>
-      <h2 style="font-family: var(--header-font); font-size: 32px; margin-top: 0.5rem;">A practitioner who designs for the person</h2>
-    </div>
-    <div class="about-grid fade-in" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.5rem;">
-      <div>
-        <p style="font-size: 15px; color: var(--ink-soft);">My work has always been about meeting people in the middle of change: a young person navigating their first job search, an adult returning to learning after years away, a student stepping into professional practice for the first time. For more than fifteen years, I have worked at the intersection of education, employment, and human development, and what has remained constant across every role is a belief that good learning design begins with deep respect for the learner.</p>
-        <p style="font-size: 15px; color: var(--ink-soft); margin-top: 1.25rem;">I began my career as an employment counsellor, holding a diploma in social service work, building a practice spanning adult learning, youth programming and community development.</p>
-      </div>
-      <div>
-        <p style="font-size: 15px; color: var(--ink-soft);">My undergraduate degree in educational studies, with a specialization in adult learning with technology, has given me language and theoretical grounding for what I had been doing intuitively. I now approach instructional and learning design with both practice and principle, using frameworks like universal design for learning, grounding assessment in clearly defined learning outcomes, and drawing on experiential learning theory.</p>
-        <p style="font-size: 15px; color: var(--ink-soft); margin-top: 1.25rem;">I am drawn to roles in post-secondary education, corporate training and development and learning design where I can contribute to programs and experiences that take equity seriously, built around who learners actually are.</p>
       </div>
     </div>
   </section>
