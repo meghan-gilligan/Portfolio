@@ -22,335 +22,74 @@
       --body-font: 'DM Sans', sans-serif;
     }
 
-    body {
-      font-family: var(--body-font);
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.7;
-    }
+    body { font-family: var(--body-font); background: var(--cream); color: var(--ink); line-height: 1.7; }
 
-    /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       height: var(--nav-height);
       background: rgba(244, 241, 235, 0.93);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; z-index: 100;
     }
 
-    .nav-name {
-      font-family: var(--header-font);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-
+    .nav-name { font-family: var(--header-font); font-size: 16px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-
-    .nav-links a {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--ink); }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 24px; height: 18px;
-      background: none; border: none;
-      cursor: pointer; padding: 0; z-index: 101;
-    }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; background: none; border: none; cursor: pointer; padding: 0; z-index: 101; }
+    .menu-toggle span { width: 100%; height: 2px; background-color: var(--ink); transition: all 0.3s ease; }
 
-    .menu-toggle span {
-      width: 100%; height: 2px;
-      background-color: var(--ink);
-      transition: all 0.3s ease;
-    }
+    .hero { position: relative; overflow: hidden; height: 260px; display: flex; align-items: flex-end; margin-top: var(--nav-height); }
+    .hero-img-fallback { position: absolute; inset: 0; background: linear-gradient(135deg, #3A4E28 0%, #5A7A3A 40%, #8BA86A 70%, #C5D8A0 100%); }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: brightness(0.85) saturate(0.88); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(50,65,35,0.10) 0%, rgba(30,40,20,0.55) 100%); }
+    .hero-text { position: relative; z-index: 2; padding: 0 2.5rem 2rem; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C8D9A8; font-weight: 500; margin-bottom: 0.4rem; display: block; }
+    .hero-title { font-family: var(--header-font); font-size: 26px; font-weight: 700; color: #F0EDE6; line-height: 1.2; margin: 0; }
 
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      height: 260px;
-      display: flex;
-      align-items: flex-end;
-      margin-top: var(--nav-height);
-    }
+    section { padding: 2.5rem 2.5rem 5rem; max-width: 1100px; margin: 0 auto; }
 
-    .hero-img-fallback {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #3A4E28 0%, #5A7A3A 40%, #8BA86A 70%, #C5D8A0 100%);
-    }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--rule); border: 1px solid var(--rule); }
+    .project-card { background: var(--warm-white); padding: 2.5rem; display: flex; flex-direction: column; }
 
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 50%;
-      filter: brightness(0.85) saturate(0.88);
-    }
+    .project-tag { font-size: 11px; color: var(--accent-warm); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; margin-bottom: 0.4rem; }
+    .project-card h3 { font-family: var(--header-font); font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .project-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 0; min-height: 5.5em; }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(50,65,35,0.10) 0%, rgba(30,40,20,0.55) 100%);
-    }
+    .project-image-wrap { width: 100%; height: 220px; margin: 1.25rem 0; overflow: hidden; border: 1px solid var(--rule); background: #E8EDDF; }
+    .project-image-wrap a { display: block; height: 100%; }
+    .project-image-wrap img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #E8EDDF; }
 
-    .hero-text {
-      position: relative;
-      z-index: 2;
-      padding: 0 2.5rem 2rem;
-    }
+    .project-image-placeholder { width: 100%; height: 200px; margin: 1.25rem 0; border: 1px solid var(--rule); background: #E8EDDF; display: flex; align-items: center; justify-content: center; }
+    .project-image-placeholder span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); }
 
-    .hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #C8D9A8;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      display: block;
-    }
+    .annotation-box { margin: 1.25rem 0 0; padding: 1rem 1.25rem; background: rgba(109, 140, 74, 0.04); border-left: 2px solid var(--accent-light); }
 
-    .hero-title {
-      font-family: var(--header-font);
-      font-size: 26px;
-      font-weight: 700;
-      color: #F0EDE6;
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    /* ── SECTION ── */
-    section {
-      padding: 2.5rem 2.5rem 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 2.5rem;
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--ink-muted);
-      font-weight: 500;
-    }
-
-    .section-title {
-      font-family: var(--header-font);
-      font-size: 28px;
-      margin-top: 0.5rem;
-      color: var(--ink);
-    }
-
-    /* ── PROJECT GRID ── */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-    }
-
-    .project-card {
-      background: var(--warm-white);
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-tag {
-      font-size: 11px;
-      color: var(--accent-warm);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-card h3 {
-      font-family: var(--header-font);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .project-desc {
-      font-size: 14px;
-      color: var(--ink-soft);
-      margin-bottom: 0;
-      /* Tall enough to match the longest description (card 3 has an inline link
-         that wraps to an extra line). This keeps images aligned row-by-row. */
-      min-height: 5.5em;
-    }
-
-    /* ── IMAGE ALIGNMENT ── */
-    /* 
-      Fixed-height image container ensures all project images 
-      sit at the same vertical position across both columns.
-    */
-    .project-image-wrap {
-      width: 100%;
-      height: 220px;
-      margin: 1.25rem 0;
-      overflow: hidden;
-      border: 1px solid var(--rule);
-      background: #E8EDDF;
-    }
-
-    .project-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      background: #E8EDDF;
-    }
-
-    /* Placeholder for cards without an image yet */
-    .project-image-placeholder {
-      width: 100%;
-      height: 200px;
-      margin: 1.25rem 0;
-      border: 1px solid var(--rule);
-      background: #E8EDDF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project-image-placeholder span {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ink-muted);
-    }
-
-    /* ── ANNOTATION BOX ── */
-    .annotation-box {
-      margin: 1.25rem 0 0;
-      padding: 1rem 1.25rem 1rem;
-      background: rgba(109, 140, 74, 0.04);
-      border-left: 2px solid var(--accent-light);
-    }
-
-    /* Summary toggle */
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--accent-warm);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      list-style: none;
-      outline: none;
-      padding: 0.25rem 0; /* vertical breathing room above and below */
-      margin-bottom: 0;
-    }
-
+    summary { cursor: pointer; font-weight: 700; color: var(--accent-warm); text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; list-style: none; outline: none; padding: 0.25rem 0; margin-bottom: 0; }
     summary::-webkit-details-marker { display: none; }
+    details[open] summary { margin-bottom: 1rem; }
 
-    /* Gap between summary and first heading when open */
-    details[open] summary {
-      margin-bottom: 1rem;
-    }
+    .annotation-text { font-size: 14px; line-height: 1.65; color: var(--ink-soft); padding-bottom: 1.25rem; }
+    .annotation-text p { margin-bottom: 0.85rem; }
+    .annotation-text p:last-child { margin-bottom: 0; }
+    .annotation-text strong { color: var(--ink); text-transform: uppercase; font-size: 12px; letter-spacing: 0.06em; display: block; margin-bottom: 0.2rem; }
 
-    .annotation-text {
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--ink-soft);
-      padding-bottom: 1.25rem; /* controlled bottom space */
-    }
-
-    .annotation-text p {
-      margin-bottom: 0.85rem; /* tighter between paragraphs */
-    }
-
-    .annotation-text p:last-child {
-      margin-bottom: 0; /* no trailing space after last paragraph */
-    }
-
-    .annotation-text strong {
-      color: var(--ink);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      display: block;
-      margin-bottom: 0.2rem;
-      margin-top: 0; /* no extra top gap — summary->first strong gap handled above */
-    }
-
-    /* ── VIEW LINK ── */
-    .view-link {
-      margin-top: 1.25rem;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: inline-block;
-    }
-
+    .view-link { margin-top: 1.25rem; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
     .view-link:hover { color: var(--accent); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 2rem 3rem;
-      background: var(--warm-white);
-      text-align: center;
-      border-top: 1px solid var(--rule);
-    }
+    footer { padding: 2rem 3rem; background: var(--warm-white); text-align: center; border-top: 1px solid var(--rule); }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
-
       .menu-toggle { display: flex; }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: var(--nav-height);
-        left: 0; right: 0;
-        background: var(--cream);
-        padding: 3rem 1.5rem;
-        border-bottom: 1px solid var(--rule);
-        gap: 2rem;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      }
-
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--cream); padding: 3rem 1.5rem; border-bottom: 1px solid var(--rule); gap: 2rem; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
       .nav-links.active { display: flex; }
-
       .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
       .menu-toggle.active span:nth-child(2) { opacity: 0; }
       .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
       section { padding: 2rem 1.5rem 3rem; }
       .project-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 20px; }
@@ -365,11 +104,9 @@
 
   <nav>
     <a class="nav-name" href="index.html">Meghan Gilligan</a>
-
     <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
       <span></span><span></span><span></span>
     </button>
-
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="philosophy.html">Philosophy</a></li>
@@ -379,7 +116,6 @@
     </ul>
   </nav>
 
-  <!-- HERO — uses leaf2.jpg from root folder -->
   <div class="hero">
     <div class="hero-img-fallback"></div>
     <img class="hero-img" src="leaf2.jpg" alt="Close-up macro photograph of a tropical leaf" />
@@ -391,7 +127,6 @@
   </div>
 
   <section id="projects">
-
     <div class="project-grid fade-in">
 
       <!-- CARD 1 -->
@@ -400,7 +135,9 @@
         <h3>Inclusive eLearning Practices</h3>
         <p class="project-desc">Collaborated on an eLearning project focused on equipping educators to apply UDL principles to support neurodiverse adult learners.</p>
         <div class="project-image-wrap">
-          <img src="inclusive.jpg" alt="Inclusive eLearning Practices Canvas eLearning module preview" />
+          <a href="https://lor.instructure.com/resources/994b35127e4e4ce99bafc31ddee122d7?shared" target="_blank" rel="noopener noreferrer">
+            <img src="inclusive.jpg" alt="Inclusive eLearning Practices Canvas eLearning module preview" />
+          </a>
         </div>
         <div class="annotation-box">
           <details>
@@ -422,7 +159,9 @@
         <h3>Self-Assessment Skills in Higher Education</h3>
         <p class="project-desc">Leveraged UDL principles to design and deploy a Canvas LMS module focused on self-assessment and metacognitive growth.</p>
         <div class="project-image-wrap">
-          <img src="self-assessment.jpg" alt="Self-Assessment Skills in Higher Education Canvas page preview" />
+          <a href="https://meghan-gilligan.github.io/Self-Assessment-Skills-in-Higher-Education/" target="_blank" rel="noopener noreferrer">
+            <img src="self-assessment.jpg" alt="Self-Assessment Skills in Higher Education Canvas page preview" />
+          </a>
         </div>
         <div class="annotation-box">
           <details>
@@ -444,7 +183,7 @@
         <h3>AI Tools in Career Planning</h3>
         <p class="project-desc">Authored a research paper and digital resource guide for AI-driven career planning, and showcased it at the <a href="https://education.ontariotechu.ca/cdie/events/cdie-conf-2025.php#tab2-4" target="_blank" style="color: var(--accent-warm); text-decoration: underline; font-weight: 500;">2025 Digital Innovation in Education Conference</a> at Ontario Tech University.</p>
         <div class="project-image-wrap">
-          <a href="https://canva.link/97lkhx6jy4r8yh1" target="_blank" rel="noopener noreferrer" style="display:block; height:100%;">
+          <a href="https://canva.link/97lkhx6jy4r8yh1" target="_blank" rel="noopener noreferrer">
             <img src="poster.png" alt="AI Tools in Career Planning conference poster" />
           </a>
         </div>
@@ -468,8 +207,9 @@
         <h3>Thriving as an Adult Learner</h3>
         <p class="project-desc">Created with Articulate 360 to help mature students manage competing demands of post-secondary life.</p>
         <div class="project-image-wrap">
-        <a href="https://lor.instructure.com/resources/4753ace8cb9d40e2a3620ee092b9b892?shared" target="_blank" rel="noopener noreferrer" style="display:block; height:100%;">
-          <img src="thriving.jpg" alt="Thriving as an Adult Learner Articulate 360 eLearning module preview" />
+          <a href="https://lor.instructure.com/resources/4753ace8cb9d40e2a3620ee092b9b892?shared" target="_blank" rel="noopener noreferrer">
+            <img src="thriving.jpg" alt="Thriving as an Adult Learner Articulate 360 eLearning module preview" />
+          </a>
         </div>
         <div class="annotation-box">
           <details>
@@ -482,7 +222,7 @@
             </div>
           </details>
         </div>
-        <a class="view-link" href="https://meghan-gilligan.github.io/Thriving-as-an-Adult-Learner/" target="_blank">View project →</a>
+        <a class="view-link" href="https://lor.instructure.com/resources/4753ace8cb9d40e2a3620ee092b9b892?shared" target="_blank">View project →</a>
       </div>
 
       <!-- CARD 5 -->
@@ -491,7 +231,7 @@
         <h3>Workplace Learning Course Redesign</h3>
         <p class="project-desc">A full course redevelopment using backward design — learning outcomes, unit plans, and summative assessments.</p>
         <div class="project-image-wrap">
-          <a href="https://drive.google.com/file/d/1z9VOkoZbUNH0GNvgNfYEQZZ2SAYWjW2e/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:block; height:100%;">
+          <a href="https://drive.google.com/file/d/1z9VOkoZbUNH0GNvgNfYEQZZ2SAYWjW2e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <img src="workplace.jpg" alt="How Learning Happens in Workplaces PowerPoint Title Page" />
           </a>
         </div>
@@ -515,7 +255,7 @@
         <h3>Job Search Skills Workshop Series</h3>
         <p class="project-desc">Lesson plans and workshop designs for community, co-op and work integrated learning programs.</p>
         <div class="project-image-wrap">
-          <a href="https://canva.link/6m59iihepli0ymj" target="_blank" rel="noopener noreferrer" style="display:block; height:100%;">
+          <a href="https://canva.link/6m59iihepli0ymj" target="_blank" rel="noopener noreferrer">
             <img src="competencies.jpg" alt="Analyzing Competencies workshop presentation preview" />
           </a>
         </div>
