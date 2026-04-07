@@ -31,7 +31,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -58,7 +57,7 @@
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      font-size: 11px;
+      font-size: 14px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink-soft);
@@ -67,7 +66,6 @@
     }
     .nav-links a:hover { color: var(--ink); }
 
-    /* ── MOBILE MENU TOGGLE ── */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -88,7 +86,6 @@
       transition: all 0.3s ease;
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       overflow: hidden;
@@ -145,7 +142,6 @@
       margin: 0;
     }
 
-    /* ── MAIN CONTENT ── */
     section {
       padding: 3.5rem 2.5rem 6rem;
       max-width: 720px;
@@ -162,7 +158,7 @@
 
     .content-area h2 {
       font-family: var(--header-font);
-      font-size: 11px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--accent-warm);
@@ -196,19 +192,16 @@
       display: block;
       margin-top: 0.4rem;
       font-style: normal;
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent-warm);
       font-weight: 500;
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
-
       .menu-toggle { display: flex; }
-
       .nav-links {
         display: none;
         flex-direction: column;
@@ -222,13 +215,10 @@
         text-align: center;
         box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       }
-
       .nav-links.active { display: flex; }
-
       .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
       .menu-toggle.active span:nth-child(2) { opacity: 0; }
       .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
       section { padding: 2.5rem 1.5rem 4rem; }
       .hero-title { font-size: 20px; }
       .hero-text { padding: 0 1.5rem 1.5rem; }
@@ -247,11 +237,9 @@
 
   <nav>
     <a class="nav-name" href="index.html">Meghan Gilligan</a>
-
     <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
       <span></span><span></span><span></span>
     </button>
-
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="philosophy.html">Philosophy</a></li>
@@ -261,7 +249,6 @@
     </ul>
   </nav>
 
-  <!-- HERO — uses leaf5.jpg from root folder -->
   <div class="hero">
     <div class="hero-img-fallback"></div>
     <img class="hero-img" src="leaf5.jpg" alt="Close-up macro photograph of a tropical leaf" />
@@ -310,12 +297,10 @@
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
-
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
